@@ -169,8 +169,8 @@ function resetProvider(prov: NetworkProvider = "TestNet") {
   const key = prov.toLowerCase();
   network = prov;
   reachProviderEnv = {
-    ALGO_SERVER: "https://testnet.algoexplorerapi.io",
-    // ALGO_SERVER: `https://node.${key}.algoexplorerapi.io`,
+    // ALGO_SERVER: "https://testnet.algoexplorerapi.io",
+    ALGO_SERVER: `https://node.${key}.algoexplorerapi.io`,
     ALGO_PORT: "",
     ALGO_TOKEN: TK,
     ALGO_INDEXER_SERVER: `https://algoindexer.${key}.algoexplorerapi.io`,
