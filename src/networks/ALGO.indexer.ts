@@ -195,10 +195,10 @@ function resetProvider(prov: NetworkProvider = "TestNet") {
   network = prov;
   reachProviderEnv = {
     // Switched to AlgoNode (Free: 50 req/s per IP),
-    ALGO_SERVER: `https://${key}-api.algonode.cloud`,
+    ALGO_SERVER: `https://node.${key === 'testnet' ? (key + '.') : ''}algoexplorerapi.io`,
     ALGO_PORT: "",
     ALGO_TOKEN: TOKEN,
-    ALGO_INDEXER_SERVER: `https://${key}-idx.algonode.cloud`,
+    ALGO_INDEXER_SERVER: `https://algoindexer.${key === 'testnet' ? (key + '.') : ''}algoexplorerapi.io`,
     ALGO_INDEXER_PORT: "",
     ALGO_INDEXER_TOKEN: TOKEN,
     REACH_ISOLATED_NETWORK: "no",
