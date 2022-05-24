@@ -18,6 +18,11 @@ export async function connectUser() {
   console.log("wc2:", wc2);
   try {
     const account: ReachAccount = await getDefaultAccount();
+    return hydrateUser(account);
+  } catch (e: any) {
+    console.log('error: ', e)
+    throw e;
+  } finally {
     wc = document.getElementById("walletconnect-qrcode-close");
     wc2 = document.getElementById("walletconnect-modal__close__wrapper");
     wc?.addEventListener("click", function () {
@@ -26,11 +31,8 @@ export async function connectUser() {
     wc2?.addEventListener("click", function () {
       alert("Hello World 2!");
     });
-    console.log("wc3:", wc);
-    console.log("wc4:", wc2);
-    return hydrateUser(account);
-  } catch (e: any) {
-    throw e;
+    console.log("wc:", wc);
+    console.log("wc2:", wc2);
   }
 }
 
