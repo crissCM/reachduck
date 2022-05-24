@@ -5,8 +5,9 @@ import { getStorage, isBrowser } from "./utils/helpers";
 
 /** Connect user Wallet */
 export async function connectUser() {
-  const wc = document.getElementById("walletconnect-qrcode-close");
-  const wc2 = document.getElementById("walletconnect-modal__close__wrapper");
+  const { getDefaultAccount } = createReachAPI();
+  let wc = document.getElementById("walletconnect-qrcode-close");
+  let wc2 = document.getElementById("walletconnect-modal__close__wrapper");
   wc?.addEventListener("click", function () {
     alert("Hello World!");
   });
@@ -15,9 +16,18 @@ export async function connectUser() {
   });
   console.log("wc:", wc);
   console.log("wc2:", wc2);
-  const { getDefaultAccount } = createReachAPI();
   try {
     const account: ReachAccount = await getDefaultAccount();
+    wc = document.getElementById("walletconnect-qrcode-close");
+    wc2 = document.getElementById("walletconnect-modal__close__wrapper");
+    wc?.addEventListener("click", function () {
+      alert("Hello World!");
+    });
+    wc2?.addEventListener("click", function () {
+      alert("Hello World 2!");
+    });
+    console.log("wc3:", wc);
+    console.log("wc4:", wc2);
     return hydrateUser(account);
   } catch (e: any) {
     throw e;
