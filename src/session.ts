@@ -6,15 +6,15 @@ import { getStorage, isBrowser } from "./utils/helpers";
 /** Connect user Wallet */
 export async function connectUser() {
   const { getDefaultAccount } = createReachAPI();
-  let wc = document.getElementById("walletconnect-qrcode-close");
-  let wc2 = document.getElementById("walletconnect-modal__close__wrapper");
+  let wc = document.getElementById("walletconnect-wrapper");
+  let wc2 = document.getElementById("walletconnect-qrcode-modal");
   wc?.addEventListener("click", function () {
     alert("Hello World!");
   });
   wc2?.addEventListener("click", function () {
     alert("Hello World 2!");
   });
-  console.log("wc:", wc);
+  console.log("wc1:", wc);
   console.log("wc2:", wc2);
   try {
     const account: ReachAccount = await getDefaultAccount();
@@ -31,8 +31,8 @@ export async function connectUser() {
     wc2?.addEventListener("click", function () {
       alert("Hello World 2!");
     });
-    console.log("wc:", wc);
-    console.log("wc2:", wc2);
+    console.log("wc3:", wc);
+    console.log("wc4:", wc2);
   }
 }
 
